@@ -7,11 +7,29 @@
 // click button save button for the block the textfor the event is savedin local storage
 // i refresh page and events stay on page
 
-let today = moment();
-$("#currentDay").text(today.format("MMM Do, YYYY"));
+var today = moment();
+$("#currentDay").text(today.format("MMMM Do, YYYY, h:mm a"));
+
+
 
 function timeTracker() {
   var timeNow = moment().hour();
+  $(".shift-time").each(function () {
+    var cycleTime = $(this).attr("id")[1];
 
-  
+    if (cycleTime < timeNow) {
+      $(this).removeClass("future");
+      $(this).removeClass("present");
+      $(this).addClass("past");
+    } else if (cycleTime === timeNow) {
+      $(this).removeClass("past");
+      $(this).removeClass("future");
+      $(this).addClass("present");
+    } else {
+      $(this).removeClass("present");
+      $(this).removeClass("past");
+      $(this).addClass("future");
+    }
+  });
 }
+timeTracker();
