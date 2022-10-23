@@ -20,12 +20,13 @@ const localInfo11 = document.querySelector(".hourinfo17");
 const localInfo12 = document.querySelector(".hourinfo18");
 const localInfo13 = document.querySelector(".hourinfo19");
 const localInfo14 = document.querySelector(".hourinfo20");
-
+//set time and day with moment
 let today = moment();
 $("#currentDay").text(today.format("MMMM Do, YYYY, h:mm a"));
 let allRowArray = document.querySelectorAll(".shift-time");
 
 console.log("Here is: ", allRowArray);
+//lets save text to local storage and sae to page
 for (i = 0; i < allRowArray.length; i++) {
   console.log($(allRowArray[i]).attr("id"));
   var waterYou = $(allRowArray[i]).attr("id");
@@ -53,7 +54,7 @@ for (i = 0; i < allRowArray.length; i++) {
     window.location.reload();
   });
 }
-
+// tracks time by going throw the moment for the hour and comparing it to the id number to change as time changes
 function timeTracker() {
   let timeNow = moment().hour();
   console.log(timeNow);
@@ -78,7 +79,7 @@ function timeTracker() {
   }
 }
 timeTracker();
-
+// saves info to the page until new info is added or storage is saved
 localInfo1.textContent = localStorage.getItem(7);
 localInfo2.textContent = localStorage.getItem(8);
 localInfo3.textContent = localStorage.getItem(9);
