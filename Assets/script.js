@@ -6,34 +6,41 @@
 //click block can enter event
 // click button save button for the block the textfor the event is savedin local storage
 // i refresh page and events stay on page
-var cycleTime =
-  document.getElementById[
-    ("7",
-    "8",
-    "9",
-    "10",
-    "11",
-    "12",
-    "13",
-    "14",
-    "15",
-    "16",
-    "17",
-    "18",
-    "19",
-    "20")
-  ];
-var today = moment();
+
+
+
+let today = moment();
 $("#currentDay").text(today.format("MMMM Do, YYYY, h:mm a"));
+let cycleTime = document.getElementById ([
+  "7",
+  "8",
+  "9",
+  "10",
+  "11",
+  "12",
+  "13",
+  "14",
+  "15",
+  "16",
+  "17",
+  "18",
+  "19",
+  "20",
+]);
+for (i=0; i < cycleTime.length; i++){
+
+
+console.log(cycleTime[i])
+
 
 function timeTracker() {
-  var timeNow = moment().hour();
+  const timeNow = moment().hour();
   $(".shift-time").each(function () {
-    if (cycleTime < timeNow) {
+    if (cycleTime[i] < timeNow) {
       $(this).removeClass("future");
       $(this).removeClass("present");
       $(this).addClass("past");
-    } else if (cycleTime === timeNow) {
+    } else if (cycleTime[i] === timeNow) {
       $(this).removeClass("past");
       $(this).removeClass("future");
       $(this).addClass("present");
@@ -43,6 +50,7 @@ function timeTracker() {
       $(this).addClass("future");
     }
   });
+}
 }
 
 timeTracker();
