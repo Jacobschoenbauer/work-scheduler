@@ -55,19 +55,17 @@ for (i = 0; i < allRowArray.length; i++) {
 
   });
  
-  console.log(localStorage.getItem(7));
-
   var waterYou = $(allRowArray[i]).attr("id");
 
   function timeTracker() {
     let timeNow = moment().hour();
     console.log(timeNow);
     $(".shift-time").each(function () {
-      if ($(allRowArray[i]).attr("id") > timeNow) {
+      if (parseInt(waterYou) > timeNow) {
         $(this).removeClass("future");
         $(this).removeClass("present");
         $(this).addClass("past");
-      } else if ($(allRowArray[i]).attr("id") === timeNow) {
+      } else if (parseInt(waterYou).attr("id") == timeNow) {
         $(this).removeClass("past");
         $(this).removeClass("future");
         $(this).addClass("present");
