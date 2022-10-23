@@ -7,50 +7,52 @@
 // click button save button for the block the textfor the event is savedin local storage
 // i refresh page and events stay on page
 
-
-
 let today = moment();
 $("#currentDay").text(today.format("MMMM Do, YYYY, h:mm a"));
-let cycleTime = document.getElementById ([
-  "7",
-  "8",
-  "9",
-  "10",
-  "11",
-  "12",
-  "13",
-  "14",
-  "15",
-  "16",
-  "17",
-  "18",
-  "19",
-  "20",
-]);
-for (i=0; i < cycleTime.length; i++){
+let allRowArray = document.querySelectorAll(".shift-time");
 
+console.log("Here is: ", allRowArray);
+for (i = 0; i < allRowArray.length; i++) {
+  console.log($(allRowArray[i]).attr("id"));
 
-console.log(cycleTime[i])
-
-
-function timeTracker() {
-  const timeNow = moment().hour();
-  $(".shift-time").each(function () {
-    if (cycleTime[i] < timeNow) {
-      $(this).removeClass("future");
-      $(this).removeClass("present");
-      $(this).addClass("past");
-    } else if (cycleTime[i] === timeNow) {
-      $(this).removeClass("past");
-      $(this).removeClass("future");
-      $(this).addClass("present");
-    } else {
-      $(this).removeClass("present");
-      $(this).removeClass("past");
-      $(this).addClass("future");
-    }
+  $(".button").on("click", function () {
+    var text = $(this).siblings(".thingstodo").val();
+    var time = $(this).parent().attr("id");
+    window.localStorage.setItem(time, text);
+   
+    
   });
+
+ console.log( $(".thingTodo").val(localStorage.getItem("7")));
+
+
+
+
+  function timeTracker() {
+    const timeNow = moment().hour();
+    console.log(timeNow)
+    $(".shift-time").each(function () {
+      if ($(allRowArray[i]).attr("id") < timeNow) {
+        $(this).removeClass("future");
+        $(this).removeClass("present");
+        $(this).addClass("past");
+      } else if ($(allRowArray[i]).attr("id") == timeNow) {
+        $(this).removeClass("past");
+        $(this).removeClass("future");
+        $(this).addClass("present");
+      } else {
+        $(this).removeClass("present");
+        $(this).removeClass("past");
+        $(this).addClass("future");
+      }
+    });
+   
+  }
 }
-}
+
+
+
+
+
 
 timeTracker();
