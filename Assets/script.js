@@ -29,7 +29,7 @@ console.log("Here is: ", allRowArray);
 //lets save text to local storage and sae to page
 for (i = 0; i < allRowArray.length; i++) {
   console.log($(allRowArray[i]).attr("id"));
-  var waterYou = $(allRowArray[i]).attr("id");
+
   $(".button").on("click", function () {
     var text = $(this).siblings(".thingstodo").val();
     var time = $(this).parent().attr("id");
@@ -56,16 +56,21 @@ for (i = 0; i < allRowArray.length; i++) {
 }
 // tracks time by going throw the moment for the hour and comparing it to the id number to change as time changes
 function timeTracker() {
-  let timeNow = moment().hour();
-  console.log(timeNow);
+  
+
+  //for (i = 0; i < allRowArray.length; i++) {
+  // let allRowArray = document.querySelectorAll(".shift-time");
   for (i = 0; i < allRowArray.length; i++) {
-    let allRowArray = document.querySelectorAll(".shift-time");
+    var coolStull = parseInt($(allRowArray[i]).attr("id"));
+    let timeNow = moment().hour()
+    console.log(coolStull);
+    console.log(timeNow)
     $(".shift-time").each(function () {
-      if ($(allRowArray[i]).attr("id") > timeNow) {
+      if (coolStull > timeNow) {
         $(this).removeClass("future");
         $(this).removeClass("present");
         $(this).addClass("past");
-      } else if ($(allRowArray[i]).attr("id") == timeNow) {
+      } else if (coolStull === timeNow) {
         $(this).removeClass("past");
         $(this).removeClass("future");
         $(this).addClass("present");
@@ -74,10 +79,10 @@ function timeTracker() {
         $(this).removeClass("past");
         $(this).addClass("future");
       }
-     
     });
   }
 }
+
 timeTracker();
 // saves info to the page until new info is added or storage is saved
 localInfo1.textContent = localStorage.getItem(7);
