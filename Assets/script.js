@@ -64,7 +64,7 @@ function timeTracker() {
         $(this).removeClass("future");
         $(this).removeClass("present");
         $(this).addClass("past");
-      } else if ($(allRowArray[i]).attr("id") === timeNow) {
+      } else if ($(allRowArray[i]).attr("id") == timeNow) {
         $(this).removeClass("past");
         $(this).removeClass("future");
         $(this).addClass("present");
@@ -73,9 +73,7 @@ function timeTracker() {
         $(this).removeClass("past");
         $(this).addClass("future");
       }
-      if ($(allRowArray[7]).attr("id") === waterYou) {
-        let numTime = 7;
-      }
+     
     });
   }
 }
