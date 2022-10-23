@@ -23,20 +23,35 @@ for (i = 0; i < allRowArray.length; i++) {
     
   });
 
- console.log( $(".thingTodo").val(localStorage.getItem("7")));
+ console.log(localStorage.getItem(7));
+ localStorage.getItem(7)
+ localStorage.getItem(8)
+ localStorage.getItem(9)
+ localStorage.getItem(10)
+ localStorage.getItem(11)
+ localStorage.getItem(12)
+ localStorage.getItem(13)
+ localStorage.getItem(15)
+ localStorage.getItem(16)
+ localStorage.getItem(17)
+ localStorage.getItem(18)
+ localStorage.getItem(19)
+ localStorage.getItem(20)
+ 
 
+ var waterYou = $(allRowArray[i]).attr("id")
 
 
 
   function timeTracker() {
-    const timeNow = moment().hour();
+    let timeNow = moment().hour();
     console.log(timeNow)
     $(".shift-time").each(function () {
-      if ($(allRowArray[i]).attr("id") < timeNow) {
+      if ($(allRowArray[i]).attr("id") > timeNow) {
         $(this).removeClass("future");
         $(this).removeClass("present");
         $(this).addClass("past");
-      } else if ($(allRowArray[i]).attr("id") == timeNow) {
+      } else if ($(allRowArray[i]).attr("id") === timeNow) {
         $(this).removeClass("past");
         $(this).removeClass("future");
         $(this).addClass("present");
