@@ -12,4 +12,4 @@ https://github.com/Jacobschoenbauer/work-scheduler
 ## URL
 https://jacobschoenbauer.github.io/work-scheduler/
 ## Picture
-![img](Assets/Screenshot%202022-10-23%20174835.png)
+![img](assets/Screenshot%202022-10-24%20102617.png)
