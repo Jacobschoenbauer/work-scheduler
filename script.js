@@ -57,27 +57,24 @@ for (i = 0; i < allRowArray.length; i++) {
 // tracks time by going throw the moment for the hour and comparing it to the id number to change as time changes
 function timeTracker() {
   
-
-  //for (i = 0; i < allRowArray.length; i++) {
-  // let allRowArray = document.querySelectorAll(".shift-time");
   for (i = 0; i < allRowArray.length; i++) {
-    var coolStull = parseInt($(allRowArray[i]).attr("id"));
+    const coolStull = parseInt($(allRowArray[i]).attr("id"));
     let timeNow = moment().hour()
     console.log(coolStull);
     console.log(timeNow)
     $(".shift-time").each(function () {
       if (coolStull > timeNow) {
-        $(this).removeClass("future");
-        $(this).removeClass("present");
-        $(this).addClass("past");
+        $(allRowArray[i]).removeClass("future");
+        $(allRowArray[i]).removeClass("present");
+        $(allRowArray[i]).addClass("past");
       } else if (coolStull === timeNow) {
-        $(this).removeClass("past");
-        $(this).removeClass("future");
-        $(this).addClass("present");
+        $(allRowArray[i]).removeClass("past");
+        $(allRowArray[i]).removeClass("future");
+        $(allRowArray[i]).addClass("present");
       } else {
-        $(this).removeClass("present");
-        $(this).removeClass("past");
-        $(this).addClass("future");
+        $(allRowArray[i]).removeClass("present");
+        $(allRowArray[i]).removeClass("past");
+        $(allRowArray[i]).addClass("future");
       }
     });
   }
